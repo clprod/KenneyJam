@@ -42,6 +42,7 @@ __meta__ = {
 }
 health = 3
 speed = 200.0
+droped_money = 5
 
 [node name="sprite" type="Sprite" parent="."]
 

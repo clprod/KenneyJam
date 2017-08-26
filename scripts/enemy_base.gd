@@ -3,6 +3,9 @@ extends PathFollow2D
 export(int) var health = 5
 export(float) var speed = 10
 
+export(int) var droped_money = 5
+
+
 var end_threshold = 5
 
 func _ready():
@@ -17,4 +20,7 @@ func take_damages(amount):
 	health -= amount
 	get_node("AnimationPlayer").play("hit")
 	if health < 0:
+		get_node("/root/game/player").addMoney(droped_money)
 		queue_free()
+		
+		

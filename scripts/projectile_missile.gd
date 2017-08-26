@@ -1,6 +1,7 @@
 extends KinematicBody2D
 
 var velocity
+export(PackedScene) var explosion_scene
 
 func _ready():
 	set_fixed_process(true)
@@ -13,7 +14,10 @@ func _fixed_process(delta):
 		if is_colliding():
 			if get_collider().get_parent().has_method("take_damages"):
 				get_collider().get_parent().take_damages(1)
+				var explosion = explosion_scene.instance()
 				queue_free()
+				
+				
 
 func shoot(direction, speed):
 	velocity = direction * speed

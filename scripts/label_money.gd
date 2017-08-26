@@ -1,11 +1,7 @@
-extends Label
 
 var textToDisplay = "Money: "
-var moneyAmount = ""
-
 func _ready():
-	set_process(true)
+	get_node("Label").set_text(textToDisplay + String(get_node("/root/game/player").money))
 	
-func _process(delta):
-	#moneyAmount = get_node("player").money
-	set_text(textToDisplay+moneyAmount)
+func _on_player_signal_money( money ):
+	get_node("Label").set_text(textToDisplay+String(money))
