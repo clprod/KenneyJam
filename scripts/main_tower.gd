@@ -12,7 +12,7 @@ func _ready():
 	set_process(true)
 	set_process_input(true)
 	
-func disabled():
+func disable():
 	isDisabled = true
 func enable():
 	isDisabled = false
