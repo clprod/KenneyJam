@@ -57,7 +57,6 @@ func place_tower():
 	var smoke = smoke_scene.instance()
 	tower.add_child(smoke)
 	smoke.set_pos(Vector2())
-	smoke.get_node("AnimationPlayer").play("disappear")
 	get_node("/root/game/Camera2D").shake(0.3, 100, 3)
 
 func set_tower(tower_file):
