@@ -27,9 +27,9 @@ tower_parent = NodePath("../../towers")
 
 [node name="towers" type="Node2D" parent="."]
 
-[node name="Main tower" parent="." instance=ExtResource( 5 )]
+[node name="main_tower" parent="." instance=ExtResource( 5 )]
 
-transform/pos = Vector2( 150.05, 410.471 )
+transform/pos = Vector2( 144, 400 )
 
 [node name="ui" type="Control" parent="."]
 

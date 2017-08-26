@@ -5,7 +5,9 @@
 [ext_resource path="res://Assets/tower-defense-top-down/PNG/Default size/towerDefense_tile249.png" type="Texture" id=3]
 [ext_resource path="res://Assets/tower-defense-top-down/PNG/Default size/towerDefense_tile295.png" type="Texture" id=4]
 
-[node name="single_canon" type="Node2D"]
+[node name="single_canon" type="Node2D" groups=[
+"towers",
+]]
 
 script/script = ExtResource( 1 )
 __meta__ = {

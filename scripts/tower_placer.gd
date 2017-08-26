@@ -21,7 +21,12 @@ func _process(delta):
 
 func is_place_valid():
 	var map = get_node("/root/game/map/TileMap")
-	return map.get_cellv(get_pos()/tile_size) == 2
+	if not map.get_cellv(get_pos()/tile_size) == 2:
+		return false
+	for tower in get_tree().get_nodes_in_group("towers"):
+		if tower.get_pos() == get_pos():
+			return false
+	return true
 
 func set_tower_modulate(color):
 	var tower = get_child(0)

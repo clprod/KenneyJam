@@ -39,7 +39,7 @@ func set_state(state):
 		set_process(false)
 		tower_placer.enable()
 		get_node("ui/buy_menu").show()
-		get_node("Main tower").disable()
+		get_node("main_tower").disable()
 	elif current_state == GameState.DEFENDING:
 		set_process(true)
 		tower_placer.disable()
