@@ -1,15 +1,21 @@
-[gd_scene load_steps=2 format=1]
+[gd_scene load_steps=3 format=1]
 
-[ext_resource path="res://Assets/tower-defense-top-down/PNG/Retina/towerDefense_tile249.png" type="Texture" id=1]
+[ext_resource path="res://scripts/tower_base.gd" type="Script" id=1]
+[ext_resource path="res://Assets/tower-defense-top-down/PNG/Retina/towerDefense_tile249.png" type="Texture" id=2]
 
 [node name="single_canon" type="Node2D"]
 
+script/script = ExtResource( 1 )
 __meta__ = {
 "_edit_group_": true
 }
+shooting_range = null
+shooting_power = null
+shooting_speed = null
+cost = null
 
 [node name="sprite" type="Sprite" parent="."]
 
-texture = ExtResource( 1 )
+texture = ExtResource( 2 )
 
 
