@@ -1,12 +1,13 @@
-[gd_scene load_steps=8 format=1]
+[gd_scene load_steps=9 format=1]
 
 [ext_resource path="res://scripts/game.gd" type="Script" id=1]
 [ext_resource path="res://scenes/map.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scripts/player.gd" type="Script" id=3]
 [ext_resource path="res://scenes/tower_placer.tscn" type="PackedScene" id=4]
-[ext_resource path="res://scenes/towers/main_tower.tscn" type="PackedScene" id=5]
-[ext_resource path="res://scenes/ui/money_displayer.tscn" type="PackedScene" id=6]
-[ext_resource path="res://scenes/ui/buy_menu.tscn" type="PackedScene" id=7]
+[ext_resource path="res://scenes/effects/smoke.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenes/towers/main_tower.tscn" type="PackedScene" id=6]
+[ext_resource path="res://scenes/ui/money_displayer.tscn" type="PackedScene" id=7]
+[ext_resource path="res://scenes/ui/buy_menu.tscn" type="PackedScene" id=8]
 
 [node name="game" type="Node2D"]
 
@@ -16,7 +17,6 @@ script/script = ExtResource( 1 )
 
 [node name="player" type="Node2D" parent="."]
 
-editor/display_folded = true
 script/script = ExtResource( 3 )
 health = 5
 money = 10
@@ -24,10 +24,11 @@ money = 10
 [node name="tower_placer" parent="player" instance=ExtResource( 4 )]
 
 tower_parent = NodePath("../../towers")
+smoke_scene = ExtResource( 5 )
 
 [node name="towers" type="Node2D" parent="."]
 
-[node name="main_tower" parent="." instance=ExtResource( 5 )]
+[node name="main_tower" parent="." instance=ExtResource( 6 )]
 
 transform/pos = Vector2( 144, 400 )
 
@@ -42,13 +43,13 @@ margin/top = 0.0
 margin/right = 40.0
 margin/bottom = 40.0
 
-[node name="money" parent="ui" instance=ExtResource( 6 )]
+[node name="money" parent="ui" instance=ExtResource( 7 )]
 
 margin/left = 221.0
 margin/top = 2.0
 margin/right = 261.0
 margin/bottom = 42.0
 
-[node name="buy_menu" parent="ui" instance=ExtResource( 7 )]
+[node name="buy_menu" parent="ui" instance=ExtResource( 8 )]
 
 

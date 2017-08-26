@@ -9,6 +9,7 @@
 "towers",
 ]]
 
+z/z = 1
 script/script = ExtResource( 1 )
 shooting_range = 100
 shooting_power = 1

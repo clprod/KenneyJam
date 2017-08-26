@@ -2,6 +2,7 @@ extends Node2D
 
 export(int) var tile_size
 export(NodePath) var tower_parent
+export(PackedScene) var smoke_scene
 
 func _process(delta):
 	var pos = get_global_mouse_pos()
@@ -53,6 +54,10 @@ func place_tower():
 	tower.set_pos(get_pos())
 	tower.set_scale(Vector2(1, 1))
 	tower.enable()
+	var smoke = smoke_scene.instance()
+	tower.add_child(smoke)
+	smoke.set_pos(Vector2())
+	smoke.get_node("AnimationPlayer").play("disappear")
 
 func set_tower(tower_file):
 	if get_child_count() == 1:
