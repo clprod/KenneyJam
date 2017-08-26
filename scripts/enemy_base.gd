@@ -20,7 +20,5 @@ func take_damages(amount):
 	health -= amount
 	get_node("AnimationPlayer").play("hit")
 	if health < 0:
-		get_node("/root/game/player").addMoney(droped_money)
+		get_node("/root/game/player").add_money(droped_money)
 		queue_free()
-		
-		
