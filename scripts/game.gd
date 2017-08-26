@@ -22,6 +22,8 @@ func _process(delta):
 
 func _input(event):
 	if event.type == InputEvent.MOUSE_BUTTON and event.is_pressed():
+		if tower_placer.get_child_count() == 0:
+			return
 		var tower = tower_placer.get_child(0)
 		var tower_pos = tower.get_global_pos()
 		tower_placer.remove_child(tower)
