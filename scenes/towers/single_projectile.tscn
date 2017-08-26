@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=1]
+
+[ext_resource path="res://scripts/tower_projectile.gd" type="Script" id=1]
+[ext_resource path="res://scenes/projectiles/projectile_bullet.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Assets/tower-defense-top-down/PNG/Default size/towerDefense_tile181.png" type="Texture" id=3]
+[ext_resource path="res://Assets/tower-defense-top-down/PNG/Default size/towerDefense_tile249.png" type="Texture" id=4]
+
+[node name="single_projectile" type="Node2D"]
+
+script/script = ExtResource( 1 )
+shooting_range = 100
+shooting_power = 1
+shooting_speed = 1.0
+cost = null
+projectile_speed = 2000.0
+projectile_scene = ExtResource( 2 )
+
+[node name="base" type="Sprite" parent="."]
+
+transform/scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 3 )
+
+[node name="canon" type="Sprite" parent="."]
+
+transform/scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 4 )
+flip_v = true
+modulate = Color( 0.320312, 0.346863, 1, 1 )
+
+

@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=1]
+[gd_scene load_steps=7 format=1]
 
 [ext_resource path="res://scripts/game.gd" type="Script" id=1]
 [ext_resource path="res://scenes/map.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scripts/player.gd" type="Script" id=3]
 [ext_resource path="res://scenes/towers/single_canon.tscn" type="PackedScene" id=4]
-[ext_resource path="res://scenes/towers/main_tower.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenes/towers/single_projectile.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenes/towers/main_tower.tscn" type="PackedScene" id=6]
 
 [node name="game" type="Node2D"]
 
@@ -28,7 +29,11 @@ transform/pos = Vector2( 80, 496 )
 
 transform/pos = Vector2( 432, 304 )
 
-[node name="Main tower" parent="." instance=ExtResource( 5 )]
+[node name="single_projectile" parent="towers" instance=ExtResource( 5 )]
+
+transform/pos = Vector2( 528, 144 )
+
+[node name="Main tower" parent="." instance=ExtResource( 6 )]
 
 transform/pos = Vector2( 150.05, 410.471 )
 
