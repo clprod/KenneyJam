@@ -46,4 +46,4 @@ func set_state(state):
 		while tower_placer.get_child_count() > 0:
 			tower_placer.remove_child(tower_placer.get_child(0))
 		get_node("ui/buy_menu").hide()
-		get_node("Main tower").enable()
+		get_node("main_tower").enable()
