@@ -23,10 +23,12 @@ money = 10
 [node name="single_canon" parent="towers" instance=ExtResource( 4 )]
 
 transform/pos = Vector2( 80, 496 )
+fire_show_time = 0.1
 
 [node name="single_canon1" parent="towers" instance=ExtResource( 4 )]
 
 transform/pos = Vector2( 432, 304 )
+fire_show_time = 0.1
 
 [node name="Main tower" parent="." instance=ExtResource( 5 )]
 
