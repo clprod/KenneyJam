@@ -1,13 +1,12 @@
-[gd_scene load_steps=9 format=1]
+[gd_scene load_steps=8 format=1]
 
 [ext_resource path="res://scripts/game.gd" type="Script" id=1]
 [ext_resource path="res://scenes/map.tscn" type="PackedScene" id=2]
 [ext_resource path="res://scripts/player.gd" type="Script" id=3]
 [ext_resource path="res://scenes/tower_placer.tscn" type="PackedScene" id=4]
-[ext_resource path="res://scenes/towers/single_canon.tscn" type="PackedScene" id=5]
-[ext_resource path="res://scenes/towers/single_projectile.tscn" type="PackedScene" id=6]
-[ext_resource path="res://scenes/towers/main_tower.tscn" type="PackedScene" id=7]
-[ext_resource path="res://scenes/ui/money_displayer.tscn" type="PackedScene" id=8]
+[ext_resource path="res://scenes/towers/main_tower.tscn" type="PackedScene" id=5]
+[ext_resource path="res://scenes/ui/money_displayer.tscn" type="PackedScene" id=6]
+[ext_resource path="res://scenes/ui/buy_menu.tscn" type="PackedScene" id=7]
 
 [node name="game" type="Node2D"]
 
@@ -17,37 +16,39 @@ script/script = ExtResource( 1 )
 
 [node name="player" type="Node2D" parent="."]
 
+editor/display_folded = true
 script/script = ExtResource( 3 )
 health = 5
 money = 10
 
 [node name="tower_placer" parent="player" instance=ExtResource( 4 )]
 
-[node name="single_canon" parent="player/tower_placer" instance=ExtResource( 5 )]
+tower_parent = NodePath("../../towers")
 
 [node name="towers" type="Node2D" parent="."]
 
-[node name="single_canon" parent="towers" instance=ExtResource( 5 )]
-
-transform/pos = Vector2( 80, 496 )
-
-[node name="single_canon1" parent="towers" instance=ExtResource( 5 )]
-
-transform/pos = Vector2( 432, 304 )
-
-[node name="single_projectile" parent="towers" instance=ExtResource( 6 )]
-
-transform/pos = Vector2( 528, 144 )
-
-[node name="Main tower" parent="." instance=ExtResource( 7 )]
+[node name="Main tower" parent="." instance=ExtResource( 5 )]
 
 transform/pos = Vector2( 150.05, 410.471 )
 
-[node name="money" parent="." instance=ExtResource( 8 )]
+[node name="ui" type="Control" parent="."]
+
+focus/ignore_mouse = false
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 2
+margin/left = 0.0
+margin/top = 0.0
+margin/right = 40.0
+margin/bottom = 40.0
+
+[node name="money" parent="ui" instance=ExtResource( 6 )]
 
 margin/left = 221.0
 margin/top = 2.0
 margin/right = 261.0
 margin/bottom = 42.0
+
+[node name="buy_menu" parent="ui" instance=ExtResource( 7 )]
 
 
