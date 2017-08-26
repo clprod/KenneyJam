@@ -35,7 +35,7 @@ func _process(delta):
 
 func shootProjectileFrom(canon):
 	var projectile = projectile_scene.instance()
-	var direction = (get_global_mouse_pos() - canon.get_pos()).normalized()
+	var direction = (get_global_mouse_pos() - canon.get_global_pos()).normalized()
 	projectile.shoot(direction, projectile_speed)
 	get_node("Base").add_child(projectile)
 	
