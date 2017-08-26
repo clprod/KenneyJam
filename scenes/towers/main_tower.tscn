@@ -8,6 +8,7 @@
 [node name="Main tower" type="Node2D"]
 
 script/script = ExtResource( 1 )
+loading_time = 0.1
 
 [node name="Base" type="Sprite" parent="."]
 
@@ -22,10 +23,12 @@ flip_v = true
 
 transform/pos = Vector2( -6.31752, 44.2226 )
 texture = ExtResource( 4 )
+flip_v = true
 
 [node name="fire_left" type="Sprite" parent="Canon"]
 
 transform/pos = Vector2( 5.41502, 45.1251 )
 texture = ExtResource( 4 )
+flip_v = true
 
 

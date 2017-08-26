@@ -1,6 +1,8 @@
 extends Node2D
 
-var left = true;
+var fire_alternate = true;
+export var loading_time = 0.1
+var last_time_shoot = 0
 
 func _ready():
 	set_process(true)
@@ -11,14 +13,21 @@ func _ready():
 func _process(delta):
 	get_node("Canon").look_at(get_global_mouse_pos())
 	
-func _input(event):
-	if event.is_action_pressed("left_click"): 
-		if left : 
-			get_node("Canon").get_node("fire_left").set_hidden(false)
-			get_node("Canon").get_node("fire_right").set_hidden(true)
-			left = false
-		else :
-			get_node("Canon").get_node("fire_left").set_hidden(true)
-			get_node("Canon").get_node("fire_right").set_hidden(false) 
-			left = true
+	last_time_shoot -= delta
+	if Input.is_mouse_button_pressed(BUTTON_LEFT):
+		if last_time_shoot <= 0:
+			fire()
+			last_time_shoot = loading_time
+	else:
+		get_node("Canon").get_node("fire_left").set_hidden(true)
+		get_node("Canon").get_node("fire_right").set_hidden(true)
 	
+func fire():
+	if fire_alternate : 
+		get_node("Canon").get_node("fire_left").set_hidden(false)
+		get_node("Canon").get_node("fire_right").set_hidden(true)
+		fire_alternate = false
+	else :
+		get_node("Canon").get_node("fire_left").set_hidden(true)
+		get_node("Canon").get_node("fire_right").set_hidden(false) 
+		fire_alternate = true
