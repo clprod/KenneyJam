@@ -100,26 +100,6 @@ smoke_scene = ExtResource( 5 )
 
 transform/pos = Vector2( 144, 400 )
 
-[node name="ui" type="Control" parent="."]
-
-focus/ignore_mouse = false
-focus/stop_mouse = true
-size_flags/horizontal = 2
-size_flags/vertical = 2
-margin/left = 0.0
-margin/top = 0.0
-margin/right = 40.0
-margin/bottom = 40.0
-
-[node name="money" parent="ui" instance=ExtResource( 7 )]
-
-margin/left = 221.0
-margin/top = 2.0
-margin/right = 261.0
-margin/bottom = 42.0
-
-[node name="buy_menu" parent="ui" instance=ExtResource( 8 )]
-
 [node name="Camera2D" type="Camera2D" parent="."]
 
 anchor_mode = 0
@@ -139,5 +119,21 @@ drag_margin/top = 0.2
 drag_margin/right = 0.2
 drag_margin/bottom = 0.2
 script/script = SubResource( 1 )
+
+[node name="ui" type="CanvasLayer" parent="."]
+
+layer = 10
+offset = Vector2( 0, 0 )
+rotation = 0.0
+scale = Vector2( 1, 1 )
+
+[node name="money" parent="ui" instance=ExtResource( 7 )]
+
+margin/left = 221.0
+margin/top = 2.0
+margin/right = 261.0
+margin/bottom = 42.0
+
+[node name="buy_menu" parent="ui" instance=ExtResource( 8 )]
 
 
