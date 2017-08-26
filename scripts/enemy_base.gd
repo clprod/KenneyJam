@@ -15,5 +15,6 @@ func _fixed_process(delta):
 
 func take_damages(amount):
 	health -= amount
+	get_node("AnimationPlayer").play("hit")
 	if health < 0:
 		queue_free()
