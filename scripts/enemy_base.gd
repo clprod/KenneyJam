@@ -10,7 +10,7 @@ func _ready():
 
 func _fixed_process(delta):
 	set_offset(get_offset() + (speed * delta))
-	if abs(get_offset() - get_parent().get_curve().get_baked_length()) <= end_threshold:
+	if get_unit_offset() >= 1:
 		queue_free()
 
 func take_damages(amount):
