@@ -15,9 +15,9 @@ func _fixed_process(delta):
 			if get_collider().get_parent().has_method("take_damages"):
 				get_collider().get_parent().take_damages(1)
 				var explosion = explosion_scene.instance()
+				get_node("/root/game").add_child(explosion)
+				explosion.set_pos(get_collision_pos())
 				queue_free()
-				
-				
 
 func shoot(direction, speed):
 	velocity = direction * speed
