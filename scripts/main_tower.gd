@@ -38,6 +38,7 @@ func shootProjectileFrom(canon):
 	var direction = (get_global_mouse_pos() - canon.get_global_pos()).normalized()
 	projectile.shoot(direction, projectile_speed)
 	get_node("Base").add_child(projectile)
+	projectile.look_at(get_pos() + direction)
 	
 func fire():
 	# Canon Animation
