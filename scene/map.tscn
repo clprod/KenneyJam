@@ -1,0 +1,25 @@
+[gd_scene load_steps=2 format=1]
+
+[ext_resource path="res://myTileset.res" type="TileSet" id=1]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="TileMap" type="TileMap" parent="."]
+
+mode = 0
+tile_set = ExtResource( 1 )
+cell/size = Vector2( 64, 64 )
+cell/quadrant_size = 12
+cell/custom_transform = Matrix32( 1, 0, 0, 1, 0, 0 )
+cell/half_offset = 2
+cell/tile_origin = 0
+cell/y_sort = false
+collision/use_kinematic = false
+collision/friction = 1.0
+collision/bounce = 0.0
+collision/layers = 1
+collision/mask = 1
+occluder/light_mask = 1
+tile_data = IntArray( 0, 2, 2, 7, 4, 3, 6, 3, 8, 3, 10, 3, 12, 8, 14, 2, 131072, 2, 131074, 1, 131076, 12, 131078, 4, 131080, 4, 131082, 11, 131084, 0, 131086, 2, 262144, 2, 262146, 1, 262148, 9, 262150, 3, 262152, 3, 262154, 10, 262156, 0, 262158, 2, 393216, 2, 393218, 5, 393220, 4, 393222, 4, 393224, 4, 393226, 4, 393228, 6, 393230, 2, 524288, 2, 524290, 2, 524292, 2, 524294, 2, 524296, 2, 524298, 2, 524300, 2, 524302, 2 )
+
+
