@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=1]
+[gd_scene load_steps=12 format=1]
 
 [ext_resource path="res://scripts/game.gd" type="Script" id=1]
 [ext_resource path="res://scenes/map.tscn" type="PackedScene" id=2]
@@ -8,6 +8,8 @@
 [ext_resource path="res://scenes/towers/main_tower.tscn" type="PackedScene" id=6]
 [ext_resource path="res://scenes/ui/money_displayer.tscn" type="PackedScene" id=7]
 [ext_resource path="res://scenes/ui/buy_menu.tscn" type="PackedScene" id=8]
+[ext_resource path="res://scenes/ui/life_displayer.tscn" type="PackedScene" id=9]
+[ext_resource path="res://scripts/label_life.gd" type="Script" id=10]
 
 [sub_resource type="GDScript" id=1]
 
@@ -135,5 +137,13 @@ margin/right = 261.0
 margin/bottom = 42.0
 
 [node name="buy_menu" parent="ui" instance=ExtResource( 8 )]
+
+[node name="life" parent="ui" instance=ExtResource( 9 )]
+
+margin/left = 532.0
+margin/top = 2.0
+margin/right = 572.0
+margin/bottom = 42.0
+script/script = ExtResource( 10 )
 
 

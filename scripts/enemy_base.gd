@@ -5,7 +5,6 @@ export(float) var speed = 10
 
 export(int) var droped_money = 5
 
-
 var end_threshold = 5
 
 func _ready():
