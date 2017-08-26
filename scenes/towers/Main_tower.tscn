@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=1]
+[gd_scene load_steps=5 format=1]
 
 [ext_resource path="res://scripts/main_tower.gd" type="Script" id=1]
 [ext_resource path="res://Assets/tower-defense-top-down/PNG/Default size/towerDefense_tile183.png" type="Texture" id=2]
 [ext_resource path="res://Assets/tower-defense-top-down/PNG/Default size/towerDefense_tile250.png" type="Texture" id=3]
+[ext_resource path="res://Assets/tower-defense-top-down/PNG/Default size/towerDefense_tile298.png" type="Texture" id=4]
 
 [node name="Main tower" type="Node2D"]
 
@@ -16,5 +17,15 @@ texture = ExtResource( 2 )
 
 texture = ExtResource( 3 )
 flip_v = true
+
+[node name="fire_right" type="Sprite" parent="Canon"]
+
+transform/pos = Vector2( -6.31752, 44.2226 )
+texture = ExtResource( 4 )
+
+[node name="fire_left" type="Sprite" parent="Canon"]
+
+transform/pos = Vector2( 5.41502, 45.1251 )
+texture = ExtResource( 4 )
 
 
