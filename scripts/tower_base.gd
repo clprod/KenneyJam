@@ -10,6 +10,12 @@ var last_shoot = 0
 func _ready():
 	set_process(true)
 
+func disable():
+	set_process(false)
+
+func enable():
+	set_process(true)
+
 func _process(delta):
 	last_shoot -= delta
 
