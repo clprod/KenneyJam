@@ -27,6 +27,7 @@ func place_tower():
 	remove_child(tower)
 	get_node(tower_parent).add_child(tower)
 	tower.set_pos(get_pos())
+	tower.set_scale(Vector2(1, 1))
 
 func set_tower(tower_file):
 	if get_child_count() == 1:
@@ -34,3 +35,4 @@ func set_tower(tower_file):
 	
 	var tower = load("res://scenes/towers/" + tower_file + ".tscn").instance()
 	add_child(tower)
+	tower.set_scale(Vector2(1.2, 1.2))
