@@ -1,4 +1,4 @@
-extends Node
+extends Node2D
 
 func _ready():
 	var enemy = load("res://scenes/enemies/enemy_weak.tscn").instance()
