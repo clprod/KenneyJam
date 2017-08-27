@@ -5,6 +5,9 @@ enum GameState {
 	DEFENDING
 }
 
+export (Texture) var cursor_picking
+export (Texture) var cursor_reticle
+
 var counter = 0
 var current_state
 
@@ -40,6 +43,7 @@ func set_state(state):
 		tower_placer.enable()
 		get_node("ui/buy_menu").show()
 		get_node("main_tower").disable()
+		Input.set_custom_mouse_cursor(cursor_picking)
 	elif current_state == GameState.DEFENDING:
 		set_process(true)
 		tower_placer.disable()
@@ -47,3 +51,4 @@ func set_state(state):
 			tower_placer.remove_child(tower_placer.get_child(0))
 		get_node("ui/buy_menu").hide()
 		get_node("main_tower").enable()
+		Input.set_custom_mouse_cursor(cursor_reticle)
