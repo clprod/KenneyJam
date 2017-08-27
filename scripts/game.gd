@@ -27,6 +27,7 @@ func _ready():
 	get_node("ui/buy_menu/ScrollContainer/VBoxContainer/Button").connect("pressed", get_node("player/tower_placer"), "set_tower", ["single_canon"])
 	get_node("ui/buy_menu/ScrollContainer/VBoxContainer/Button1").connect("pressed", get_node("player/tower_placer"), "set_tower", ["single_projectile"])
 	set_state(GameState.DEFENDING)
+	get_node("ui/wave_announcement").set_wave(current_wave)
 	set_process_input(true)
 	current_spawn_rate = initial_spawn_rate
 
@@ -55,6 +56,7 @@ func next_wave():
 	for i in range(current_spawn_rate.size()):
 		current_spawn_rate[i] += (final_spawn_rate[i] - initial_spawn_rate[i]) / (base_wave_number - 1)
 	set_state(GameState.DEFENDING)
+	get_node("ui/wave_announcement").set_wave(current_wave)
 
 func _input(event):
 	if event.type == InputEvent.MOUSE_BUTTON and event.is_pressed():
@@ -82,6 +84,7 @@ func set_state(state):
 		get_node("ui/buy_menu").hide()
 		get_node("main_tower").enable()
 		Input.set_custom_mouse_cursor(cursor_reticle)
+		counter = 2
 
 func on_death():
 	Input.set_custom_mouse_cursor(cursor_picking)

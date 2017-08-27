@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=1]
+[gd_scene load_steps=16 format=1]
 
 [ext_resource path="res://scripts/game.gd" type="Script" id=1]
 [ext_resource path="res://Assets/uipack-space/PNG/cursor_hand.png" type="Texture" id=2]
@@ -13,6 +13,7 @@
 [ext_resource path="res://scenes/ui/buy_menu.tscn" type="PackedScene" id=11]
 [ext_resource path="res://scenes/ui/life_displayer.tscn" type="PackedScene" id=12]
 [ext_resource path="res://scripts/label_life.gd" type="Script" id=13]
+[ext_resource path="res://scenes/ui/wave_announcement.tscn" type="PackedScene" id=14]
 
 [sub_resource type="GDScript" id=1]
 
@@ -155,5 +156,7 @@ margin/top = 2.0
 margin/right = 572.0
 margin/bottom = 42.0
 script/script = ExtResource( 13 )
+
+[node name="wave_announcement" parent="ui" instance=ExtResource( 14 )]
 
 
