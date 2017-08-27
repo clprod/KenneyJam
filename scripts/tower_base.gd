@@ -6,7 +6,7 @@ export(float) var shooting_speed
 export(int) var cost
 
 var health = 5
-
+var showing_range = false
 var last_shoot = 0
 
 func _ready():
@@ -37,3 +37,14 @@ func take_damages(amount):
 	health -= amount
 	if health < 0:
 		queue_free()
+
+func show_range():
+	showing_range = true
+	update()
+func hide_range():
+	showing_range = false
+	update()
+
+func _draw():
+	if showing_range:
+		draw_circle(get_pos(), shooting_range, Color(0, 0, 1, 0.3))

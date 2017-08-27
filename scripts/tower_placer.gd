@@ -55,6 +55,7 @@ func place_tower():
 	tower.set_pos(get_pos())
 	tower.set_scale(Vector2(1, 1))
 	tower.enable()
+	tower.hide_range()
 	var smoke = smoke_scene.instance()
 	tower.add_child(smoke)
 	smoke.set_pos(Vector2())
@@ -67,4 +68,5 @@ func set_tower(tower_file):
 	var tower = load("res://scenes/towers/" + tower_file + ".tscn").instance()
 	add_child(tower)
 	tower.set_scale(Vector2(1.2, 1.2))
+	tower.show_range()
 	tower.disable()

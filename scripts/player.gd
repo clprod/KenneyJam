@@ -8,7 +8,7 @@ signal health_changed(health)
 
 func _ready():
 	connect("money_changed", get_node("../ui/money"), "_on_player_signal_money")
-	connect("health_changed", get_node("../ui/life"), "_on_player_signal_life")
+	connect("health_changed", get_node("../ui/life"), "_on_player_health_changed")
 	emit_signal("money_changed", money)
 	emit_signal("health_changed", health)
 
