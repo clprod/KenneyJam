@@ -58,9 +58,9 @@ script/script = ExtResource( 1 )
 __meta__ = {
 "_edit_group_": true
 }
-health = 1
+health = 3
 speed = 400.0
-droped_money = 25
+droped_money = 15
 
 [node name="sprite" type="Sprite" parent="."]
 

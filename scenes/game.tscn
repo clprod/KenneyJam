@@ -95,8 +95,8 @@ final_spawn_rate = FloatArray( 1, 25, 74 )
 [node name="player" type="Node2D" parent="."]
 
 script/script = ExtResource( 3 )
-health = 10
-money = 10
+health = 9
+money = 0
 
 [node name="tower_placer" parent="player" instance=ExtResource( 4 )]
 

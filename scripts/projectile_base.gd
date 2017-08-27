@@ -12,7 +12,7 @@ func _fixed_process(delta):
 	else:
 		if is_colliding():
 			if get_collider().get_parent().has_method("get_slowed"):
-				get_collider().get_parent().get_slowed(get_collider().get_parent().speed / 2 )
+				get_collider().get_parent().get_slowed(get_collider().get_parent().speed * 0.3 )
 				queue_free()
 
 func shoot(direction, speed):

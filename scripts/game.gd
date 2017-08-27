@@ -42,6 +42,8 @@ func _process(delta):
 			if rand <= rate:
 				var enemy = load("res://scenes/enemies/" + enemy_scenes_names[i] + ".tscn").instance()
 				get_node("map/Path2D").add_child(enemy)
+				enemy.speed += current_wave
+				enemy.health += current_wave
 				break
 		counter = time_to_spawn
 		enemy_to_spawn -= 1
