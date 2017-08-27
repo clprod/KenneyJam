@@ -27,6 +27,7 @@ func _process(delta):
 	if last_time_shoot <= 0:
 		if Input.is_mouse_button_pressed(BUTTON_LEFT):
 			fire()
+			get_node("SamplePlayer").playShoot()
 			last_time_shoot = loading_time
 	else:
 		get_node("Canon").get_node("fire_left").set_hidden(true)
