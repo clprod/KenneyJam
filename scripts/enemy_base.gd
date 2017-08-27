@@ -25,6 +25,7 @@ func take_damages(amount):
 		get_node("/root/game/ui").add_child(indicator)
 		indicator.set_value(droped_money)
 		indicator.set_pos(get_global_pos())
+		get_node("SamplePlayer").onDeathSound()
 		queue_free()
 
 func get_slowed(amountOfSpeedReduce):

@@ -14,9 +14,18 @@ droped_money = 100
 transform/scale = Vector2( 1.5, 1.5 )
 texture = ExtResource( 2 )
 
+[node name="KinematicBody2D" parent="."]
+
+editor/display_folded = true
+
 [node name="CollisionShape2D" parent="KinematicBody2D"]
 
 transform/pos = Vector2( -0.239686, -0.187625 )
 transform/scale = Vector2( 0.994934, 1.63449 )
+
+[node name="SamplePlayer" parent="."]
+
+config/samples = null
+script/script = null
 
 
