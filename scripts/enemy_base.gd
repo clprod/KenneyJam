@@ -11,6 +11,10 @@ func _ready():
 	set_fixed_process(true)
 
 func _fixed_process(delta):
+	if health < 0:
+		if not get_node("SamplePlayer").is_active():
+			queue_free()
+		return
 	set_offset(get_offset() + (speed * delta))
 	if get_unit_offset() >= 1:
 		get_node("/root/game/player").remove_health(1)
@@ -26,7 +30,8 @@ func take_damages(amount):
 		indicator.set_value(droped_money)
 		indicator.set_pos(get_global_pos())
 		get_node("SamplePlayer").onDeathSound()
-		queue_free()
+		remove_child(get_node("KinematicBody2D"))
+		remove_from_group("enemies")
 
 func get_slowed(amountOfSpeedReduce):
 	speed -= amountOfSpeedReduce

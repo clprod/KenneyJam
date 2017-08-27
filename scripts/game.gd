@@ -5,6 +5,11 @@ enum GameState {
 	DEFENDING
 }
 
+export(int) var base_wave_number
+export var enemy_scenes_names = StringArray()
+export var initial_spawn_rate = FloatArray()
+export var final_spawn_rate = FloatArray()
+
 export (Texture) var cursor_picking
 export (Texture) var cursor_reticle
 
