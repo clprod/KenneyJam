@@ -70,7 +70,10 @@ func set_tower(tower_file):
 		remove_child(get_child(0))
 	
 	var tower = load("res://scenes/towers/" + tower_file + ".tscn").instance()
+	get_node("SamplePlayer").onSelect()
 	add_child(tower)
 	tower.set_scale(Vector2(1.2, 1.2))
 	tower.show_range()
 	tower.disable()
+	
+	
