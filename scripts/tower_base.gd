@@ -5,6 +5,8 @@ export(int) var shooting_power
 export(float) var shooting_speed
 export(int) var cost
 
+var health = 5
+
 var last_shoot = 0
 
 func _ready():
@@ -26,7 +28,12 @@ func get_target():
 		if enemy.get_global_pos().distance_to(get_global_pos()) <= shooting_range:
 			if target == null or target.get_offset() < enemy.get_offset():
 				target = enemy
-	return target
+	return target 
 
 func can_shoot():
 	return last_shoot <= 0
+	
+func take_damages(amount):
+	health -= amount
+	if health < 0:
+		queue_free()

@@ -19,7 +19,7 @@ func _ready():
 func _process(delta):
 	counter -= delta
 	if counter <= 0:
-		var enemy = load("res://scenes/enemies/enemy_Strong.tscn").instance()
+		var enemy = load("res://scenes/enemies/enemy_fast.tscn").instance()
 		get_node("map/Path2D").add_child(enemy)
 		counter = 1
 

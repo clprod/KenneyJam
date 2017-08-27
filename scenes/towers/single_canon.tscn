@@ -1,14 +1,20 @@
-[gd_scene load_steps=5 format=1]
+[gd_scene load_steps=6 format=1]
 
 [ext_resource path="res://scripts/tower_gun.gd" type="Script" id=1]
 [ext_resource path="res://Assets/tower-defense-top-down/PNG/Default size/towerDefense_tile180.png" type="Texture" id=2]
 [ext_resource path="res://Assets/tower-defense-top-down/PNG/Default size/towerDefense_tile249.png" type="Texture" id=3]
 [ext_resource path="res://Assets/tower-defense-top-down/PNG/Default size/towerDefense_tile295.png" type="Texture" id=4]
 
+[sub_resource type="CircleShape2D" id=1]
+
+custom_solver_bias = 0.0
+radius = 9.39844
+
 [node name="single_canon" type="Node2D" groups=[
 "towers",
 ]]
 
+transform/pos = Vector2( -0.323532, 0 )
 z/z = 1
 script/script = ExtResource( 1 )
 __meta__ = {
@@ -27,6 +33,7 @@ texture = ExtResource( 2 )
 
 [node name="canon" type="Sprite" parent="."]
 
+editor/display_folded = true
 transform/scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 3 )
 flip_v = true
@@ -37,5 +44,23 @@ visibility/visible = false
 transform/pos = Vector2( 0, 32 )
 texture = ExtResource( 4 )
 flip_v = true
+
+[node name="KinematicBody2D" type="KinematicBody2D" parent="."]
+
+input/pickable = false
+shapes/0/shape = SubResource( 1 )
+shapes/0/transform = Matrix32( 1.41751, 0, 0, 1.39364, 0.25389, -0.0713658 )
+shapes/0/trigger = false
+collision/layers = 1
+collision/mask = 1
+collision/margin = 0.08
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="KinematicBody2D"]
+
+transform/pos = Vector2( 0.25389, -0.0713658 )
+transform/scale = Vector2( 1.41751, 1.39364 )
+shape = SubResource( 1 )
+trigger = false
+_update_shape_index = 0
 
 

@@ -32,7 +32,8 @@ func is_place_valid():
 func set_tower_modulate(color):
 	var tower = get_child(0)
 	for child in tower.get_children():
-		child.set_modulate(color)
+		if( child.get_name() != "KinematicBody2D"):
+			child.set_modulate(color)
 
 func enable():
 	set_process(true)

@@ -146,4 +146,6 @@ margin/right = 572.0
 margin/bottom = 42.0
 script/script = ExtResource( 10 )
 
+[connection signal="health_changed" from="player" to="ui/life" method="_on_player_health_changed"]
+
 

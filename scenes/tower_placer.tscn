@@ -7,5 +7,6 @@
 script/script = ExtResource( 1 )
 tile_size = 32
 tower_parent = null
+smoke_scene = null
 
 

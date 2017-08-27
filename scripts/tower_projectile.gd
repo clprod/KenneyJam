@@ -3,6 +3,7 @@ extends "res://scripts/tower_base.gd"
 export(float) var projectile_speed
 export(PackedScene) var projectile_scene
 
+
 func _process(delta):
 	var target = get_target()
 	if target != null:
