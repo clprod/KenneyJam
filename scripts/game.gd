@@ -9,6 +9,11 @@ export(int) var base_wave_number
 export var enemy_scenes_names = StringArray()
 export var initial_spawn_rate = FloatArray()
 export var final_spawn_rate = FloatArray()
+var current_spawn_rate = FloatArray()
+
+var time_to_spawn = 1
+var current_wave = 1
+var enemy_to_spawn = 10
 
 export (Texture) var cursor_picking
 export (Texture) var cursor_reticle
@@ -21,15 +26,35 @@ onready var tower_placer = get_node("player/tower_placer")
 func _ready():
 	get_node("ui/buy_menu/ScrollContainer/VBoxContainer/Button").connect("pressed", get_node("player/tower_placer"), "set_tower", ["single_canon"])
 	get_node("ui/buy_menu/ScrollContainer/VBoxContainer/Button1").connect("pressed", get_node("player/tower_placer"), "set_tower", ["single_projectile"])
-	set_state(GameState.BUILDING)
+	set_state(GameState.DEFENDING)
 	set_process_input(true)
+	current_spawn_rate = initial_spawn_rate
 
 func _process(delta):
+	if enemy_to_spawn == 0:
+		if get_tree().get_nodes_in_group("enemies").size() == 0:
+			set_state(GameState.BUILDING)
+		return
 	counter -= delta
 	if counter <= 0:
-		var enemy = load("res://scenes/enemies/enemy_fast.tscn").instance()
-		get_node("map/Path2D").add_child(enemy)
-		counter = 1
+		var rand = rand_range(0, 100)
+		var rate = 0
+		for i in range(current_spawn_rate.size()):
+			rate += current_spawn_rate[i]
+			if rand <= rate:
+				var enemy = load("res://scenes/enemies/" + enemy_scenes_names[i] + ".tscn").instance()
+				get_node("map/Path2D").add_child(enemy)
+				break
+		counter = time_to_spawn
+		enemy_to_spawn -= 1
+
+func next_wave():
+	current_wave += 1
+	enemy_to_spawn = current_wave * 10
+	time_to_spawn -= time_to_spawn/10
+	for i in range(current_spawn_rate.size()):
+		current_spawn_rate[i] += (final_spawn_rate[i] - initial_spawn_rate[i]) / (base_wave_number - 1)
+	set_state(GameState.DEFENDING)
 
 func _input(event):
 	if event.type == InputEvent.MOUSE_BUTTON and event.is_pressed():
@@ -37,7 +62,7 @@ func _input(event):
 			tower_placer.place_tower()
 	elif event.type == InputEvent.KEY and event.is_pressed():
 		if current_state == GameState.BUILDING:
-			set_state(GameState.DEFENDING)
+			next_wave()
 		else:
 			set_state(GameState.BUILDING)
 

@@ -85,10 +85,10 @@ func shake(duration, frequency, amplitude):
 [node name="game" type="Node2D"]
 
 script/script = ExtResource( 1 )
-base_wave_number = null
-enemy_scenes_names = StringArray(  )
-initial_spawn_rate = FloatArray(  )
-final_spawn_rate = FloatArray(  )
+base_wave_number = 10
+enemy_scenes_names = StringArray( "enemy_weak", "enemy_fast", "enemy_Strong" )
+initial_spawn_rate = FloatArray( 95, 5, 0 )
+final_spawn_rate = FloatArray( 1, 25, 74 )
 cursor_picking = ExtResource( 2 )
 cursor_reticle = ExtResource( 3 )
 
