@@ -61,6 +61,8 @@ func _input(event):
 	if event.type == InputEvent.MOUSE_BUTTON and event.is_pressed():
 		if current_state == GameState.BUILDING:
 			tower_placer.place_tower()
+			if get_node("ui/buy_menu/ScrollContainer/VBoxContainer/Button").is_disabled() and get_node("ui/buy_menu/ScrollContainer/VBoxContainer/Button1").is_disabled():
+				next_wave()
 	elif event.type == InputEvent.KEY and event.is_pressed():
 		if current_state == GameState.BUILDING:
 			next_wave()
