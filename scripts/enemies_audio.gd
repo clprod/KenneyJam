@@ -3,4 +3,4 @@ func _ready():
 	pass
 
 func onDeathSound():
-	play(String(randi()%2+1))
+	play(str(randi()%2+1))
