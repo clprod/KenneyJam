@@ -12,8 +12,8 @@ export var final_spawn_rate = FloatArray()
 var current_spawn_rate = FloatArray()
 
 var time_to_spawn = 1
-var current_wave = 1
-var enemy_to_spawn = 10
+var current_wave = 0
+var enemy_to_spawn = 0
 
 var counter = 0
 var current_state
@@ -23,8 +23,7 @@ onready var tower_placer = get_node("player/tower_placer")
 func _ready():
 	get_node("ui/buy_menu/ScrollContainer/VBoxContainer/Button").connect("pressed", get_node("player/tower_placer"), "set_tower", ["single_canon"])
 	get_node("ui/buy_menu/ScrollContainer/VBoxContainer/Button1").connect("pressed", get_node("player/tower_placer"), "set_tower", ["single_projectile"])
-	set_state(GameState.DEFENDING)
-	get_node("ui/wave_announcement").set_wave(current_wave)
+	set_state(GameState.BUILDING)
 	set_process_input(true)
 	current_spawn_rate = initial_spawn_rate
 
@@ -52,8 +51,9 @@ func next_wave():
 	current_wave += 1
 	enemy_to_spawn = current_wave * 10
 	time_to_spawn -= time_to_spawn/10
-	for i in range(current_spawn_rate.size()):
-		current_spawn_rate[i] += (final_spawn_rate[i] - initial_spawn_rate[i]) / (base_wave_number - 1)
+	if current_wave > 1:
+		for i in range(current_spawn_rate.size()):
+			current_spawn_rate[i] += (final_spawn_rate[i] - initial_spawn_rate[i]) / (base_wave_number - 1)
 	set_state(GameState.DEFENDING)
 	get_node("ui/wave_announcement").set_wave(current_wave)
 
@@ -61,13 +61,9 @@ func _input(event):
 	if event.type == InputEvent.MOUSE_BUTTON and event.is_pressed():
 		if current_state == GameState.BUILDING:
 			tower_placer.place_tower()
-			if get_node("ui/buy_menu/ScrollContainer/VBoxContainer/Button").is_disabled() and get_node("ui/buy_menu/ScrollContainer/VBoxContainer/Button1").is_disabled():
-				next_wave()
 	elif event.type == InputEvent.KEY and event.is_pressed():
 		if current_state == GameState.BUILDING:
 			next_wave()
-		else:
-			set_state(GameState.BUILDING)
 
 func set_state(state):
 	current_state = state
@@ -77,6 +73,7 @@ func set_state(state):
 		get_node("ui/buy_menu").show()
 		get_node("main_tower").disable()
 		get_node("ui/cursor").set_as_hand()
+		get_node("ui/press_any_key").show()
 	elif current_state == GameState.DEFENDING:
 		set_process(true)
 		tower_placer.disable()
@@ -85,6 +82,7 @@ func set_state(state):
 		get_node("ui/buy_menu").hide()
 		get_node("main_tower").enable()
 		get_node("ui/cursor").set_as_reticle()
+		get_node("ui/press_any_key").hide()
 		counter = 2
 
 func on_death():
