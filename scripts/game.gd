@@ -15,9 +15,6 @@ var time_to_spawn = 1
 var current_wave = 1
 var enemy_to_spawn = 10
 
-export (Texture) var cursor_picking
-export (Texture) var cursor_reticle
-
 var counter = 0
 var current_state
 
@@ -75,7 +72,7 @@ func set_state(state):
 		tower_placer.enable()
 		get_node("ui/buy_menu").show()
 		get_node("main_tower").disable()
-		get_node("/root/cursor").set_as_hand(cursor_picking)
+		get_node("ui/cursor").set_as_hand()
 	elif current_state == GameState.DEFENDING:
 		set_process(true)
 		tower_placer.disable()
@@ -83,9 +80,9 @@ func set_state(state):
 			tower_placer.remove_child(tower_placer.get_child(0))
 		get_node("ui/buy_menu").hide()
 		get_node("main_tower").enable()
-		get_node("/root/cursor").set_as_reticle(cursor_reticle)
+		get_node("ui/cursor").set_as_reticle()
 		counter = 2
 
 func on_death():
-	get_node("/root/cursor").set_as_hand(cursor_picking)
+	get_node("ui/cursor").set_as_hand()
 	get_tree().change_scene("res://scenes/ui/defeat_menu.tscn")

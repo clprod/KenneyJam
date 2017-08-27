@@ -1,0 +1,13 @@
+[gd_scene load_steps=4 format=1]
+
+[ext_resource path="res://scripts/cursor.gd" type="Script" id=1]
+[ext_resource path="res://Assets/uipack-space/PNG/cursor_hand.png" type="Texture" id=2]
+[ext_resource path="res://Assets/uipack-space/PNG/crossair_white.png" type="Texture" id=3]
+
+[node name="cursor" type="Sprite"]
+
+script/script = ExtResource( 1 )
+cursor_picking = ExtResource( 2 )
+cursor_reticle = ExtResource( 3 )
+
+
