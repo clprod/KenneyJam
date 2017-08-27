@@ -1,78 +1,11 @@
-[gd_scene load_steps=13 format=1]
+[gd_scene load_steps=7 format=1]
 
 [ext_resource path="res://scripts/buy_menu.gd" type="Script" id=1]
-[ext_resource path="res://Assets/uipack_fixed/PNG/grey_button10.png" type="Texture" id=2]
-[ext_resource path="res://Assets/uipack_fixed/PNG/grey_button07.png" type="Texture" id=3]
-[ext_resource path="res://Assets/uipack_fixed/PNG/grey_button11.png" type="Texture" id=4]
-[ext_resource path="res://Assets/tower-defense-top-down/PNG/Default size/towerDefense_tile249.png" type="Texture" id=5]
-[ext_resource path="res://Assets/tower-defense-top-down/PNG/Default size/towerDefense_tile249_blue.png" type="Texture" id=6]
+[ext_resource path="res://themes/theme.tres" type="Theme" id=2]
+[ext_resource path="res://Assets/tower-defense-top-down/PNG/Default size/towerDefense_tile249.png" type="Texture" id=3]
+[ext_resource path="res://Assets/tower-defense-top-down/PNG/Default size/towerDefense_tile249_blue.png" type="Texture" id=4]
 
-[sub_resource type="StyleBoxTexture" id=1]
-
-content_margin/left = -1.0
-content_margin/right = -1.0
-content_margin/top = -1.0
-content_margin/bottom = -1.0
-texture = ExtResource( 2 )
-margin/left = 5.0
-margin/right = 5.0
-margin/top = 5.0
-margin/bottom = 5.0
-expand_margin/left = 0.0
-expand_margin/right = 0.0
-expand_margin/top = 0.0
-expand_margin/bottom = 0.0
-draw_center = true
-
-[sub_resource type="StyleBoxTexture" id=2]
-
-content_margin/left = -1.0
-content_margin/right = -1.0
-content_margin/top = -1.0
-content_margin/bottom = -1.0
-texture = ExtResource( 3 )
-margin/left = 5.0
-margin/right = 5.0
-margin/top = 5.0
-margin/bottom = 5.0
-expand_margin/left = 0.0
-expand_margin/right = 0.0
-expand_margin/top = 0.0
-expand_margin/bottom = 0.0
-draw_center = true
-
-[sub_resource type="StyleBoxTexture" id=3]
-
-content_margin/left = -1.0
-content_margin/right = -1.0
-content_margin/top = -1.0
-content_margin/bottom = -1.0
-texture = ExtResource( 4 )
-margin/left = 5.0
-margin/right = 5.0
-margin/top = 5.0
-margin/bottom = 5.0
-expand_margin/left = 0.0
-expand_margin/right = 0.0
-expand_margin/top = 0.0
-expand_margin/bottom = 0.0
-draw_center = true
-
-[sub_resource type="Theme" id=4]
-
-Button/colors/font_color = Color( 0, 0, 0, 1 )
-Button/colors/font_color_disabled = Color( 0.9, 0.9, 0.9, 0.2 )
-Button/colors/font_color_hover = Color( 0, 0, 0, 1 )
-Button/colors/font_color_pressed = Color( 0, 0, 0, 1 )
-Button/constants/hseparation = 2
-Button/fonts/font = null
-Button/styles/disabled = null
-Button/styles/focus = null
-Button/styles/hover = SubResource( 1 )
-Button/styles/normal = SubResource( 2 )
-Button/styles/pressed = SubResource( 3 )
-
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=1]
 
 resource/name = "hide"
 length = 0.5
@@ -89,7 +22,7 @@ tracks/0/keys = {
 "values": [ Vector2( 0, 0 ), Vector2( -74, 0 ) ]
 }
 
-[sub_resource type="Animation" id=6]
+[sub_resource type="Animation" id=2]
 
 resource/name = "show"
 length = 0.5
@@ -126,7 +59,7 @@ focus/ignore_mouse = false
 focus/stop_mouse = true
 size_flags/horizontal = 2
 size_flags/vertical = 2
-theme/theme = SubResource( 4 )
+theme/theme = ExtResource( 2 )
 margin/left = 0.0
 margin/top = 0.0
 margin/right = 74.0
@@ -159,7 +92,7 @@ margin/bottom = 74.0
 toggle_mode = false
 enabled_focus_mode = 0
 shortcut = null
-icon = ExtResource( 5 )
+icon = ExtResource( 3 )
 flat = false
 
 [node name="Button1" type="Button" parent="ScrollContainer/VBoxContainer"]
@@ -175,7 +108,7 @@ margin/bottom = 152.0
 toggle_mode = false
 enabled_focus_mode = 0
 shortcut = null
-icon = ExtResource( 6 )
+icon = ExtResource( 4 )
 flat = false
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -183,8 +116,8 @@ flat = false
 playback/process_mode = 1
 playback/default_blend_time = 0.0
 root/root = NodePath("..")
-anims/hide = SubResource( 5 )
-anims/show = SubResource( 6 )
+anims/hide = SubResource( 1 )
+anims/show = SubResource( 2 )
 playback/active = true
 playback/speed = 1.0
 blend_times = [  ]

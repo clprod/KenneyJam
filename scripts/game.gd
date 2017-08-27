@@ -52,3 +52,7 @@ func set_state(state):
 		get_node("ui/buy_menu").hide()
 		get_node("main_tower").enable()
 		Input.set_custom_mouse_cursor(cursor_reticle)
+
+func on_death():
+	Input.set_custom_mouse_cursor(cursor_picking)
+	get_tree().change_scene("res://scenes/ui/defeat_menu.tscn")
