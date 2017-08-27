@@ -95,6 +95,7 @@ final_spawn_rate = FloatArray( 1, 25, 74 )
 
 [node name="player" type="Node2D" parent="."]
 
+editor/display_folded = true
 script/script = ExtResource( 3 )
 health = 9
 money = 0
