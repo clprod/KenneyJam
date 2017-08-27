@@ -75,7 +75,7 @@ func set_state(state):
 		tower_placer.enable()
 		get_node("ui/buy_menu").show()
 		get_node("main_tower").disable()
-		Input.set_custom_mouse_cursor(cursor_picking)
+		get_node("/root/cursor").set_as_hand(cursor_picking)
 	elif current_state == GameState.DEFENDING:
 		set_process(true)
 		tower_placer.disable()
@@ -83,9 +83,9 @@ func set_state(state):
 			tower_placer.remove_child(tower_placer.get_child(0))
 		get_node("ui/buy_menu").hide()
 		get_node("main_tower").enable()
-		Input.set_custom_mouse_cursor(cursor_reticle)
+		get_node("/root/cursor").set_as_reticle(cursor_reticle)
 		counter = 2
 
 func on_death():
-	Input.set_custom_mouse_cursor(cursor_picking)
+	get_node("/root/cursor").set_as_hand(cursor_picking)
 	get_tree().change_scene("res://scenes/ui/defeat_menu.tscn")
