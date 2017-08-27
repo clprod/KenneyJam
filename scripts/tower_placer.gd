@@ -59,6 +59,7 @@ func place_tower():
 	tower.hide_range()
 	var smoke = smoke_scene.instance()
 	tower.add_child(smoke)
+	tower.get_node("SamplePlayer").onPlace()
 	get_node("/root/game/Camera2D").shake(0.3, 100, 3)
 	var spent = spent_scene.instance()
 	spent.set_value(-tower.cost)
@@ -70,7 +71,7 @@ func set_tower(tower_file):
 		remove_child(get_child(0))
 	
 	var tower = load("res://scenes/towers/" + tower_file + ".tscn").instance()
-	get_node("SamplePlayer").onSelect()
+	tower.get_node("SamplePlayer").onSelect()
 	add_child(tower)
 	tower.set_scale(Vector2(1.2, 1.2))
 	tower.show_range()

@@ -1,11 +1,14 @@
-[gd_scene load_steps=9 format=1]
+[gd_scene load_steps=12 format=1]
 
 [ext_resource path="res://scripts/tower_gun.gd" type="Script" id=1]
 [ext_resource path="res://Assets/tower-defense-top-down/PNG/Default size/towerDefense_tile180.png" type="Texture" id=2]
 [ext_resource path="res://Assets/tower-defense-top-down/PNG/Default size/towerDefense_tile249.png" type="Texture" id=3]
 [ext_resource path="res://Assets/tower-defense-top-down/PNG/Default size/towerDefense_tile295.png" type="Texture" id=4]
-[ext_resource path="res://Assets/sounds/weapons/shot.smp" type="Sample" id=5]
-[ext_resource path="res://scripts/single_canon_audio.gd" type="Script" id=6]
+[ext_resource path="res://Assets/sounds/weapons/reload.smp" type="Sample" id=5]
+[ext_resource path="res://Assets/sounds/UI/pim.smp" type="Sample" id=6]
+[ext_resource path="res://Assets/sounds/UI/poum.smp" type="Sample" id=7]
+[ext_resource path="res://Assets/sounds/weapons/shot.smp" type="Sample" id=8]
+[ext_resource path="res://scripts/single_canon_audio.gd" type="Script" id=9]
 
 [sub_resource type="CircleShape2D" id=1]
 
@@ -14,13 +17,31 @@ radius = 9.39844
 
 [sub_resource type="SampleLibrary" id=2]
 
-samples/shot = {
+samples/onSelect = {
 "db": 0.0,
 "pitch": 1.0,
 "priority": 0,
 "sample": ExtResource( 5 )
 }
-script/script = ExtResource( 6 )
+samples/pim = {
+"db": 0.0,
+"pitch": 1.0,
+"priority": 0,
+"sample": ExtResource( 6 )
+}
+samples/poum = {
+"db": 0.0,
+"pitch": 1.0,
+"priority": 0,
+"sample": ExtResource( 7 )
+}
+samples/shot = {
+"db": 0.0,
+"pitch": 1.0,
+"priority": 0,
+"sample": ExtResource( 8 )
+}
+script/script = ExtResource( 9 )
 
 [node name="single_canon" type="Node2D" groups=[
 "towers",
@@ -78,7 +99,7 @@ _update_shape_index = 0
 
 config/polyphony = 1
 config/samples = SubResource( 2 )
-default/volume_db = -10.0
+default/volume_db = -15.0
 default/pitch_scale = 1.0
 default/pan = 0.0
 default/depth = 0.0
@@ -90,6 +111,6 @@ default/filter/gain = 1.0
 default/reverb_room = 2
 default/reverb_send = 0.0
 default/chorus_send = 0.0
-script/script = ExtResource( 6 )
+script/script = ExtResource( 9 )
 
 
