@@ -22,3 +22,7 @@ func take_damages(amount):
 	if health < 0:
 		get_node("/root/game/player").add_money(droped_money)
 		queue_free()
+
+func get_slowed(amountOfSpeedReduce):
+	speed -= amountOfSpeedReduce
+	get_node("AnimationPlayer").play("hit")
