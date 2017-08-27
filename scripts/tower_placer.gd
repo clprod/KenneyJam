@@ -3,6 +3,7 @@ extends Node2D
 export(int) var tile_size
 export(NodePath) var tower_parent
 export(PackedScene) var smoke_scene
+export(PackedScene) var spent_scene
 
 func _process(delta):
 	var pos = get_global_mouse_pos()
@@ -60,6 +61,9 @@ func place_tower():
 	tower.add_child(smoke)
 	smoke.set_pos(Vector2())
 	get_node("/root/game/Camera2D").shake(0.3, 100, 3)
+	var spent = spent_scene.instance()
+	spent.set_value(tower.cost)
+	tower.add_child(spent)
 
 func set_tower(tower_file):
 	if get_child_count() == 1:

@@ -22,7 +22,7 @@ __meta__ = {
 shooting_range = 100
 shooting_power = 1
 shooting_speed = 0.5
-cost = null
+cost = 50
 fire_show_time = 0.1
 
 [node name="base" type="Sprite" parent="."]

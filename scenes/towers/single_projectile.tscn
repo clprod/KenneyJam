@@ -19,7 +19,7 @@ script/script = ExtResource( 1 )
 shooting_range = 100
 shooting_power = 1
 shooting_speed = 1.0
-cost = null
+cost = 100
 projectile_speed = 2000.0
 projectile_scene = ExtResource( 2 )
 
