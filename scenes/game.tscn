@@ -148,6 +148,9 @@ margin/bottom = 42.0
 
 [node name="buy_menu" parent="ui" instance=ExtResource( 9 )]
 
+margin/top = 100.0
+margin/bottom = 540.0
+
 [node name="life" parent="ui" instance=ExtResource( 10 )]
 
 margin/left = 532.0
