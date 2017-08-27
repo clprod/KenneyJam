@@ -63,7 +63,8 @@ func place_tower():
 	get_node("/root/game/Camera2D").shake(0.3, 100, 3)
 	var spent = spent_scene.instance()
 	spent.set_value(-tower.cost)
-	tower.add_child(spent)
+	get_node("/root/game/ui").add_child(spent)
+	spent.set_pos(get_pos())
 
 func set_tower(tower_file):
 	if get_child_count() == 1:

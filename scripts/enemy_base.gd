@@ -22,7 +22,7 @@ func take_damages(amount):
 	if health < 0:
 		get_node("/root/game/player").add_money(droped_money)
 		var indicator = load("res://scenes/ui/money_indicator.tscn").instance()
-		get_node("/root/game").add_child(indicator)
+		get_node("/root/game/ui").add_child(indicator)
 		indicator.set_value(droped_money)
 		indicator.set_pos(get_global_pos())
 		queue_free()
