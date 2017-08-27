@@ -20,3 +20,4 @@ func shoot(target):
 	fire_node.show()
 	target.take_damages(shooting_power)
 	last_shoot = shooting_speed
+	get_node("SamplePlayer").playShot()
