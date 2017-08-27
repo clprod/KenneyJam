@@ -156,6 +156,9 @@ script/script = ExtResource( 11 )
 
 [node name="wave_announcement" parent="ui" instance=ExtResource( 12 )]
 
+focus/ignore_mouse = true
+focus/stop_mouse = false
+
 [node name="cursor" parent="ui" instance=ExtResource( 13 )]
 
 
