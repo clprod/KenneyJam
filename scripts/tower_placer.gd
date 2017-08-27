@@ -59,7 +59,6 @@ func place_tower():
 	tower.hide_range()
 	var smoke = smoke_scene.instance()
 	tower.add_child(smoke)
-	smoke.set_pos(Vector2())
 	get_node("/root/game/Camera2D").shake(0.3, 100, 3)
 	var spent = spent_scene.instance()
 	spent.set_value(tower.cost)
