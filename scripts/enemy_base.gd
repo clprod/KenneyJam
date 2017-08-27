@@ -13,6 +13,7 @@ func _ready():
 func _fixed_process(delta):
 	set_offset(get_offset() + (speed * delta))
 	if get_unit_offset() >= 1:
+		get_node("/root/game/player").remove_health(1)
 		queue_free()
 
 func take_damages(amount):
