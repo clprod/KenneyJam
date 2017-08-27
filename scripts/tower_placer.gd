@@ -53,6 +53,7 @@ func place_tower():
 	set_tower_modulate(Color(1, 1, 1, 1))
 	remove_child(tower)
 	get_node(tower_parent).add_child(tower)
+	get_parent().remove_money(tower.cost)
 	tower.set_pos(get_pos())
 	tower.set_scale(Vector2(1, 1))
 	tower.enable()
