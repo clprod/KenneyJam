@@ -6,13 +6,15 @@ export(float) var speed = 10
 export(int) var droped_money = 5
 
 var end_threshold = 5
+var death_timer = 0
 
 func _ready():
 	set_fixed_process(true)
 
 func _fixed_process(delta):
 	if health < 0:
-		if not get_node("SamplePlayer").is_active():
+		death_timer += delta
+		if death_timer > 1.5:
 			queue_free()
 		return
 	set_offset(get_offset() + (speed * delta))
