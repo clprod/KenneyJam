@@ -56,7 +56,7 @@ flip_v = true
 
 [node name="SamplePlayer" type="SamplePlayer" parent="."]
 
-config/polyphony = 1
+config/polyphony = 10
 config/samples = SubResource( 2 )
 default/volume_db = -10.0
 default/pitch_scale = 1.0

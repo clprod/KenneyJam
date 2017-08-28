@@ -87,7 +87,7 @@ _update_shape_index = 0
 
 [node name="SamplePlayer" type="SamplePlayer" parent="."]
 
-config/polyphony = 1
+config/polyphony = 2
 config/samples = SubResource( 2 )
 default/volume_db = -15.0
 default/pitch_scale = 1.0
